@@ -1,16 +1,14 @@
-import models.Post;
-import spark.ModelAndView;
-import spark.template.handlebars.HandlebarsTemplateEngine;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import models.Post;
+import spark.ModelAndView;
+import spark.template.handlebars.HandlebarsTemplateEngine;
 import static spark.Spark.*;
 
 public class App {
-    public static void main(String[] args) {
-        //type “psvm + tab” to autocreate this :)
+    public static void main(String[] args) { //type “psvm + tab” to autocreate this :)
         staticFileLocation("/public");
 
         get("/", (request, response) -> {
@@ -26,7 +24,5 @@ public class App {
             Post newPost = new Post(content);
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
-
     }
-
 }
